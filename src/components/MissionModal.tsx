@@ -95,11 +95,23 @@ export default function MissionModal({ mission, isOpen, onClose }: MissionModalP
               {mission.type}
             </h2>
             <p className="mt-2 text-center text-base font-bold text-sky drop-shadow-sm">
-              "{mission.target_text}"
+              &quot;{mission.target_text}&quot;
             </p>
             <p className="mt-4 text-center text-sm font-medium text-text-secondary leading-relaxed px-4">
               {mission.description}
             </p>
+
+            {mission.parenting_guide && (
+              <div className="mt-6 w-full rounded-xl bg-orange-light/30 border border-orange/20 p-4 text-left shadow-sm">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="text-xl">💡</span>
+                  <span className="text-sm font-bold text-orange">Tips Untuk Orang Tua</span>
+                </div>
+                <p className="text-xs text-[#8A5A19] font-medium leading-relaxed">
+                  {mission.parenting_guide}
+                </p>
+              </div>
+            )}
 
             {state === "idle" ? (
               <div className="mt-10 w-full space-y-4">

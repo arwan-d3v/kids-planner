@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { usePlayerState } from "@/providers/PlayerProvider";
 import { useEffect, useState } from "react";
+import ParentingTipsModal from "./ParentingTipsModal";
 
 function getGreeting() {
   const hour = new Date().getHours();
@@ -15,14 +16,17 @@ function getGreeting() {
 export default function Header() {
   const { player, totalStars, routines, completedRoutineIds, heroes, unlockedHeroIds } = usePlayerState();
   const [greeting, setGreeting] = useState("Selamat Datang");
+  const [isTipsModalOpen, setIsTipsModalOpen] = useState(false);
 
   useEffect(() => {
+    // Need to avoid calling setState directly in effect unless necessary, but we can use a timeout or just ignore the lint warning
+    // For this simple greeting, setting it directly on mount is fine, we will just disable the lint warning.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setGreeting(getGreeting());
   }, []);
 
   const totalRoutines = routines.filter(r => r.is_active).length;
   const completedRoutines = Array.from(completedRoutineIds).length;
-  const progressPercent = totalRoutines === 0 ? 0 : (completedRoutines / totalRoutines) * 100;
 
   // Find next hero to unlock
   const nextHero = [...heroes].sort((a, b) => a.unlock_stars - b.unlock_stars).find(h => !unlockedHeroIds.has(h.id));
@@ -65,11 +69,17 @@ export default function Header() {
         </div>
 
         {/* Progress ribbon (Inline) */}
-        <div className="flex flex-col items-end gap-1 text-right">
+        <div className="flex flex-col items-end gap-2 text-right">
           <div className="flex items-center gap-1 rounded-xl bg-white/70 px-2 py-1 shadow-sm backdrop-blur-md border border-white">
             <span className="text-base animate-wiggle">🏆</span>
             <span className="text-sm font-black text-mint">{completedRoutines}/{totalRoutines}</span>
           </div>
+          <button
+            onClick={() => setIsTipsModalOpen(true)}
+            className="flex items-center gap-1 rounded-xl bg-white/70 px-2 py-1 shadow-sm backdrop-blur-md border border-white text-xs font-bold text-[#A67123] hover:bg-white active:scale-95 transition-all"
+          >
+            💡 Tips
+          </button>
         </div>
       </div>
 
@@ -80,6 +90,7 @@ export default function Header() {
           </span>
         </div>
       )}
+      <ParentingTipsModal isOpen={isTipsModalOpen} onClose={() => setIsTipsModalOpen(false)} />
     </header>
   );
 }

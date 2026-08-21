@@ -64,6 +64,7 @@ export function PlayerProvider({ children }: { children: React.ReactNode }) {
           cached.completedMissionIds = [];
           cached.todayDate = today;
         }
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setState(prev => ({
           ...prev,
           totalStars: cached.totalStars || 0,
@@ -76,6 +77,7 @@ export function PlayerProvider({ children }: { children: React.ReactNode }) {
         console.error("Failed to parse cache", e);
       }
     } else {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setState(prev => ({ ...prev, isLoading: false }));
     }
 

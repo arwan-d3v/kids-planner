@@ -3,6 +3,7 @@
 import Header from "@/components/Header";
 import DailyMissionCard from "@/components/DailyMissionCard";
 import DailyRoutineList from "@/components/DailyRoutineList";
+import AdditionalTaskList from "@/components/AdditionalTaskList";
 import LoadingSkeleton from "@/components/LoadingSkeleton";
 import { usePlayerState } from "@/providers/PlayerProvider";
 
@@ -47,6 +48,27 @@ export default function HomePage() {
           </div>
 
           <DailyRoutineList />
+        </section>
+
+        {/* ═══ Divider ═══ */}
+        <div className="flex items-center gap-4 px-4 opacity-70">
+          <div className="h-1 flex-1 rounded-full bg-gradient-to-r from-transparent via-mint to-transparent" />
+          <span className="text-2xl animate-spin-slow">🌟</span>
+          <div className="h-1 flex-1 rounded-full bg-gradient-to-r from-transparent via-mint to-transparent" />
+        </div>
+
+        {/* ═══ Section: Tugas Tambahan ═══ */}
+        <section>
+          <div className="mb-5 flex items-center gap-3">
+            <span className="text-3xl animate-wiggle">💪</span>
+            <h2 className="text-xl font-black text-text-primary">
+              Tugas Tambahan
+            </h2>
+          </div>
+          <p className="mb-4 text-sm font-medium text-text-secondary">
+            Bantu ayah dan ibu melakukan hal-hal baik ini, yuk!
+          </p>
+          <AdditionalTaskList />
         </section>
       </main>
 

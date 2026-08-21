@@ -51,12 +51,36 @@ export default function RoutineCard({ routine, index, isCompleted }: RoutineCard
     }
   };
 
+  const [showTooltip, setShowTooltip] = useState(false);
+
   return (
     <>
+      <div className="relative group">
+        {routine.parenting_guide && (
+          <div
+            className="absolute -top-3 -right-3 z-20"
+            onMouseEnter={() => setShowTooltip(true)}
+            onMouseLeave={() => setShowTooltip(false)}
+            onClick={(e) => {
+              e.stopPropagation();
+              setShowTooltip(!showTooltip);
+            }}
+          >
+            <div className="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-white text-base shadow-md border-2 border-mint hover:scale-110 transition-transform">
+              💡
+            </div>
+            {showTooltip && (
+              <div className="absolute top-10 right-0 w-48 rounded-xl bg-white p-3 shadow-lg border-2 border-mint text-xs font-medium text-text-secondary z-30 animate-fade-in pointer-events-none">
+                <div className="absolute -top-2 right-3 h-4 w-4 rotate-45 border-l-2 border-t-2 border-mint bg-white"></div>
+                <p className="relative z-10">{routine.parenting_guide}</p>
+              </div>
+            )}
+          </div>
+        )}
       <button
         onClick={handleCardClick}
         className={`
-          group relative animate-pop flex flex-col items-center justify-center gap-3
+          w-full group/btn relative animate-pop flex flex-col items-center justify-center gap-3
           rounded-[2rem] border-4 ${styles.border} ${styles.bg}
           p-5 shadow-card transition-all duration-300
           hover:-translate-y-1 hover:shadow-card-hover
@@ -80,7 +104,7 @@ export default function RoutineCard({ routine, index, isCompleted }: RoutineCard
           flex h-16 w-16 items-center justify-center
           rounded-[1.5rem] bg-white/60 text-4xl shadow-inner
           transition-transform duration-300
-          ${!isCompleted ? 'group-hover:scale-110 group-hover:rotate-6' : ''}
+          ${!isCompleted ? 'group-hover/btn:scale-110 group-hover/btn:rotate-6' : ''}
         `}
       >
         {routine.icon}
@@ -91,6 +115,7 @@ export default function RoutineCard({ routine, index, isCompleted }: RoutineCard
         {routine.title}
       </span>
     </button>
+    </div>
     <PinModal 
       isOpen={isPinModalOpen} 
       onClose={() => setIsPinModalOpen(false)} 
