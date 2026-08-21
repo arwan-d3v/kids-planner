@@ -1,21 +1,26 @@
 import { Routine, Mission, Hero, TimeCategory } from "@/lib/supabase/types";
 
 export const defaultRoutines: Routine[] = [
-  { id: "r1", title: "Bangun Pagi", icon: "🌅", time_category: "Pagi", is_active: true, weekend_only: false, sort_order: 1 },
-  { id: "r2", title: "Mandi Pagi", icon: "🛁", time_category: "Pagi", is_active: true, weekend_only: false, sort_order: 2 },
-  { id: "r3", title: "Sikat Gigi Pagi", icon: "🦷", time_category: "Pagi", is_active: true, weekend_only: false, sort_order: 3 },
-  { id: "r4", title: "Sholat Subuh", icon: "🕌", time_category: "Pagi", is_active: true, weekend_only: false, sort_order: 4 },
-  { id: "r5", title: "Sholat Dzuhur", icon: "🕌", time_category: "Siang", is_active: true, weekend_only: false, sort_order: 5 },
-  { id: "r6", title: "Tidur Siang", icon: "😴", time_category: "Siang", is_active: true, weekend_only: false, sort_order: 6 },
-  { id: "r7", title: "Main Lego", icon: "🧱", time_category: "Siang", is_active: true, weekend_only: false, sort_order: 7 },
-  { id: "r8", title: "Bereskan Mainan", icon: "🧸", time_category: "Sore", is_active: true, weekend_only: false, sort_order: 8 },
-  { id: "r9", title: "Mandi Sore", icon: "🚿", time_category: "Sore", is_active: true, weekend_only: false, sort_order: 9 },
-  { id: "r10", title: "Sholat Ashar", icon: "🕌", time_category: "Sore", is_active: true, weekend_only: false, sort_order: 10 },
-  { id: "r11", title: "Sholat Maghrib", icon: "🕌", time_category: "Malam", is_active: true, weekend_only: false, sort_order: 11 },
-  { id: "r12", title: "Cuci Piring Bekas Makan", icon: "🍽️", time_category: "Malam", is_active: true, weekend_only: false, sort_order: 12 },
-  { id: "r13", title: "Sholat Isya", icon: "🕌", time_category: "Malam", is_active: true, weekend_only: false, sort_order: 13 },
-  { id: "r14", title: "Sikat Gigi Malam", icon: "🦷", time_category: "Malam", is_active: true, weekend_only: false, sort_order: 14 },
-  { id: "r15", title: "Jalan-jalan Keluarga", icon: "🚶", time_category: "Sore", is_active: true, weekend_only: true, sort_order: 15 },
+  { id: "r1", title: "Bangun Pagi", icon: "🌅", time_category: "Pagi", is_active: true, weekend_only: false, sort_order: 1, parenting_guide: "Sambut anak dengan senyuman hangat dan pelukan saat bangun. Hindari menyuruh anak dengan nada tinggi di pagi hari agar mood mereka terjaga sepanjang hari." },
+  { id: "r2", title: "Mandi Pagi", icon: "🛁", time_category: "Pagi", is_active: true, weekend_only: false, sort_order: 2, parenting_guide: "Jadikan waktu mandi menyenangkan, ajak bernyanyi atau bermain air sejenak. Berikan pujian saat mereka mandiri menyabuni tubuh." },
+  { id: "r3", title: "Sikat Gigi Pagi", icon: "🦷", time_category: "Pagi", is_active: true, weekend_only: false, sort_order: 3, parenting_guide: "Beri contoh menyikat gigi yang benar secara langsung. Lomba sikat gigi bersama bisa meningkatkan antusiasme anak!" },
+  { id: "r4", title: "Sholat Subuh", icon: "🕌", time_category: "Pagi", is_active: true, weekend_only: false, sort_order: 4, parenting_guide: "Ajak anak beribadah bersama dengan lembut. Jangan paksa jika masih mengantuk, biarkan mereka melihat dan meniru kebiasaan baik Anda." },
+  { id: "r5", title: "Sholat Dzuhur", icon: "🕌", time_category: "Siang", is_active: true, weekend_only: false, sort_order: 5, parenting_guide: "Diskusikan tentang rasa syukur saat beribadah bersama di tengah hari. Jadikan ini waktu jeda yang menenangkan bagi anak." },
+  { id: "r6", title: "Tidur Siang", icon: "😴", time_category: "Siang", is_active: true, weekend_only: false, sort_order: 6, parenting_guide: "Ciptakan suasana redup dan nyaman. Bacakan cerita pendek agar anak merasa rileks sebelum tertidur." },
+  { id: "r7", title: "Main Lego", icon: "🧱", time_category: "Siang", is_active: true, weekend_only: false, sort_order: 7, parenting_guide: "Bermain bersama adalah investasi emosional. Ikuti alur cerita mereka saat menyusun balok tanpa terlalu banyak mengarahkan." },
+  { id: "r8", title: "Bereskan Mainan", icon: "🧸", time_category: "Sore", is_active: true, weekend_only: false, sort_order: 8, parenting_guide: "Lakukan seperti sebuah misi! 'Yuk lihat siapa yang bisa memasukkan mainan lebih cepat ke dalam kotak!'" },
+  { id: "r9", title: "Mandi Sore", icon: "🚿", time_category: "Sore", is_active: true, weekend_only: false, sort_order: 9, parenting_guide: "Tanyakan hal paling menyenangkan yang mereka alami hari ini sambil membantu (jika perlu) mereka membersihkan diri." },
+  { id: "r10", title: "Sholat Ashar", icon: "🕌", time_category: "Sore", is_active: true, weekend_only: false, sort_order: 10, parenting_guide: "Apresiasi usaha anak ketika mulai mengambil wudhu sendiri. Berikan senyuman penuh kebanggaan." },
+  { id: "r11", title: "Sholat Maghrib", icon: "🕌", time_category: "Malam", is_active: true, weekend_only: false, sort_order: 11, parenting_guide: "Sesi ibadah malam sangat baik untuk membangun rasa damai di keluarga. Akhiri dengan doa kebaikan untuk anak agar terdengar olehnya." },
+  { id: "r12", title: "Cuci Piring Bekas Makan", icon: "🍽️", time_category: "Malam", is_active: true, weekend_only: false, sort_order: 12, parenting_guide: "Biarkan mereka mencuci piring plastik/melamin mereka sendiri. Tumbuhkan rasa tanggung jawab, jangan hiraukan sedikit air yang tumpah." },
+  { id: "r13", title: "Sholat Isya", icon: "🕌", time_category: "Malam", is_active: true, weekend_only: false, sort_order: 13, parenting_guide: "Jika anak kelelahan, tetap apresiasi kehadirannya meski hanya duduk di samping Anda saat beribadah." },
+  { id: "r14", title: "Sikat Gigi Malam", icon: "🦷", time_category: "Malam", is_active: true, weekend_only: false, sort_order: 14, parenting_guide: "Jadikan ritual penutup sebelum tidur. Ceritakan tentang kuman-kuman nakal yang lari saat melihat sikat giginya yang hebat!" },
+  { id: "r15", title: "Jalan-jalan Keluarga", icon: "🚶", time_category: "Sore", is_active: true, weekend_only: true, sort_order: 15, parenting_guide: "Lepaskan gadget, fokus 100% pada anak. Dengarkan celoteh mereka dan berikan tanggapan yang antusias." },
+
+  // Additional Tasks (Tugas Tambahan Opsional)
+  { id: "a1", title: "Membantu Menyapu", icon: "🧹", time_category: "Sore", is_active: true, weekend_only: false, sort_order: 16, is_additional_task: true, parenting_guide: "Berikan sapu kecil jika ada. Puji usahanya meski belum bersih, fokus pada kemauan dan niat baiknya membantu orang tua." },
+  { id: "a2", title: "Bantu Siram Tanaman", icon: "🪴", time_category: "Pagi", is_active: true, weekend_only: false, sort_order: 17, is_additional_task: true, parenting_guide: "Ajak anak mengamati daun atau bunga sambil menyiram. Ajarkan empati merawat makhluk hidup lainnya." },
+  { id: "a3", title: "Merapikan Meja", icon: "🧽", time_category: "Malam", is_active: true, weekend_only: false, sort_order: 18, is_additional_task: true, parenting_guide: "Libatkan dengan tugas ringan seperti mengelap meja. Ucapkan 'Terima kasih atas bantuanmu, Ibu sangat terbantu!'" },
 ];
 
 export const defaultHeroes: Hero[] = [
@@ -39,7 +44,8 @@ export const defaultMissions: Mission[] = [
     assigned_date: new Date().toISOString().split('T')[0],
     start_time: "09:00",
     end_time: "12:00",
-    is_active: true
+    is_active: true,
+    parenting_guide: "Jangan jadikan ini beban hafalan. Gunakan gerakan tubuh (TPR) atau nyanyian saat mengenalkan kata baru. Fokus pada keceriaan, bukan sekadar benar salah."
   },
   {
     id: "m2",
@@ -51,7 +57,8 @@ export const defaultMissions: Mission[] = [
     assigned_date: new Date().toISOString().split('T')[0],
     start_time: "13:00",
     end_time: "15:00",
-    is_active: true
+    is_active: true,
+    parenting_guide: "Pastikan cara memegang pensil tidak membuat tangan anak kaku. Beri jeda istirahat jika anak tampak mulai frustrasi. Pujilah hasil coretannya sebagai sebuah karya."
   },
   {
     id: "m3",
@@ -63,7 +70,8 @@ export const defaultMissions: Mission[] = [
     assigned_date: new Date().toISOString().split('T')[0],
     start_time: "15:00",
     end_time: "17:00",
-    is_active: true
+    is_active: true,
+    parenting_guide: "Bermain tebak-tebakan huruf bisa sangat seru. 'Wah, huruf yang ada titiknya di atas namanya apa ya?'. Biarkan anak yang menjadi 'guru' sesekali."
   },
   {
     id: "m4",
@@ -75,6 +83,7 @@ export const defaultMissions: Mission[] = [
     assigned_date: new Date().toISOString().split('T')[0],
     start_time: "18:00",
     end_time: "20:00",
-    is_active: true
+    is_active: true,
+    parenting_guide: "Kesabaran adalah kunci. Jangan memotong terlalu cepat saat anak mengeja. Beri senyuman, tatap matanya, dan beri semangat: 'Kamu pasti bisa!'"
   }
 ];

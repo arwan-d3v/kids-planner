@@ -24,7 +24,7 @@ export default function DailyRoutineList() {
   }, []);
 
   const activeRoutines = useMemo(() => {
-    return routines.filter(r => r.is_active && (!r.weekend_only || isWeekend));
+    return routines.filter(r => r.is_active && !r.is_additional_task && (!r.weekend_only || isWeekend));
   }, [routines, isWeekend]);
 
   // Group by category

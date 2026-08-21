@@ -19,6 +19,8 @@ export interface Routine {
   is_active: boolean;
   weekend_only: boolean;
   sort_order: number;
+  parenting_guide?: string;
+  is_additional_task?: boolean;
 }
 
 export interface Mission {
@@ -32,6 +34,7 @@ export interface Mission {
   start_time?: string; // Format "HH:mm" e.g., "09:00"
   end_time?: string;   // Format "HH:mm" e.g., "12:00"
   is_active: boolean;
+  parenting_guide?: string;
 }
 
 export interface Hero {
